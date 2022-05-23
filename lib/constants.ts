@@ -1,0 +1,1 @@
+export const GLOBAL_DATA_PATH = '/global';

@@ -13,7 +13,7 @@ export function getStrapiURL(path:string = ""): string {
  * Helper to make GET requests to Strapi API endpoints
  * @returns Parsed API call response
  */
-export async function fetchAPI(path: string, urlParamsObject:object = {}, options:object = {}) {
+export async function fetchAPI(path: string, urlParamsObject:object = {}, options:object = {}): Promise<any> {
   // Merge default and user options
   const mergedOptions = {
     headers: {
