@@ -39,6 +39,9 @@ MyApp.getInitialProps = async (context: AppContext) => {
       defaultSeo: {
         populate: "*",
       },
+      contact: {
+        populate: "*",
+      },
     },
   })
 
