@@ -1,5 +1,15 @@
 import React from 'react';
 import Link from "next/link";
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+import MenuItem from '@mui/material/MenuItem';
 
 export interface Category {
     id: string,
@@ -14,33 +24,91 @@ interface NavProps {
 }
 
 const Nav: React.FC<NavProps> = ({ categories }) => {
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
   return (
-    <div>
-      <nav className="uk-navbar-container" data-uk-navbar>
-        <div className="uk-navbar-left">
-          <ul className="uk-navbar-nav">
-            <li>
-              <Link href="/">
-                <a>Strapi Blog</a>
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="uk-navbar-right">
-          <ul className="uk-navbar-nav">
-            {categories.map((category: Category) => {
-              return (
-                <li key={category.id}>
-                  <Link href={`/category/${category.attributes.slug}`}>
-                    <a className="uk-link-reset">{category.attributes.name}</a>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </nav>
-    </div>
+    <React.Fragment>
+      <AppBar position='static'>
+          <Container maxWidth='xl'>
+              <Toolbar disableGutters sx={{ justifyContent: 'space-between'}}>
+                  <Typography
+                    variant='h6'
+                    noWrap
+                    component='a'
+                    href='/'
+                    sx={{
+                        mr:2,
+                        display: { xs: 'flex', md: 'flex' },
+                        fontFamily: 'monospace',
+                        fontWeight: 700,
+                        letterSpacing: '.3rem',
+                        color: 'inherit',
+                        textDecoration: 'none',
+                    }}>
+                    Marta Jelinkova
+                  </Typography>
+                  <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' }}}>
+                    <IconButton
+                      size='large'
+                      aria-label='navbar menu'
+                      aria-controls='menu-appbar'
+                      aria-haspopup='true'
+                      onClick={handleOpenNavMenu}
+                      color='inherit'
+                    >
+                        <MenuIcon/>
+                    </IconButton>
+                    <Menu
+                      id='menu-appbar'
+                      anchorEl={anchorElNav}
+                      anchorOrigin={{
+                          vertical: 'bottom',
+                          horizontal: 'left'
+                      }}
+                      keepMounted
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'left', 
+                      }}
+                      open={Boolean(anchorElNav)}
+                      onClose={handleCloseNavMenu}
+                      sx={{
+                          display: { xs:'block', md:'none' }
+                      }}
+                    >
+                        {categories.map((category)=> (
+                          <Link key={category.attributes.slug} href={`/category/${category.attributes.slug}`}>  
+                            <MenuItem onClick={handleCloseNavMenu}>
+                              <Typography textAlign='center'>{category.attributes.name}</Typography>
+                            </MenuItem>
+                          </Link>
+                        ))}
+                    </Menu>
+                  </Box>
+                  <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+                        {categories.map((category) => (
+                            <Link key={category.id} href={`/category/${category.attributes.slug}`}>
+                                <Button
+                                    onClick={handleCloseNavMenu}
+                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                    >
+                                    <Typography textAlign='center'>{category.attributes.name}</Typography>
+                                </Button>
+                            </Link>
+                        ))}
+                    </Box>
+              </Toolbar>    
+          </Container>
+      </AppBar>
+    </React.Fragment>  
   );
 };
 
