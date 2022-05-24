@@ -4,7 +4,6 @@ import { GlobalContext } from '../lib/context'
 import { fetchAPI } from '../lib/api'
 import { getStrapiMedia } from '../lib/media'
 import { GLOBAL_DATA_PATH } from '../lib/constants'
-import '../styles/globals.css'
 import type { AppProps, AppContext } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
