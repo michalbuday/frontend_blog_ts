@@ -1,5 +1,5 @@
-import { ReactElement } from "react";
 import Nav, { Category } from "./nav";
+import Footer from "./footer";
 
 interface LayoutProps {
     children: React.ReactNode,
@@ -11,6 +11,7 @@ const Layout = ({children, categories}: LayoutProps) => {
     <>
         <Nav categories={categories} />
         {children}
+        <Footer/>
     </>
     );
 }

@@ -1,2 +1,5 @@
 import { createContext } from 'react';
-export const GlobalContext = createContext({});
+import { globalContextType } from './types';
+import { globalContextDefaultValues } from './defaults';
+
+export const GlobalContext = createContext<globalContextType>(globalContextDefaultValues);

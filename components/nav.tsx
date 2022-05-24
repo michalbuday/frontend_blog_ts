@@ -37,7 +37,7 @@ const Nav: React.FC<NavProps> = ({ categories }) => {
   return (
     <React.Fragment>
       <AppBar position='static'>
-          <Container maxWidth='xl'>
+          <Container maxWidth='xl' sx={{backgroundColor: 'rgb(199,0,185)'}}>
               <Toolbar disableGutters sx={{ justifyContent: 'space-between'}}>
                   <Typography
                     variant='h6'
@@ -55,7 +55,7 @@ const Nav: React.FC<NavProps> = ({ categories }) => {
                     }}>
                     Marta Jelinkova
                   </Typography>
-                  <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' }}}>
+                  <Box sx={{ display: { xs: 'flex', md: 'none' }}}>
                     <IconButton
                       size='large'
                       aria-label='navbar menu'
@@ -91,9 +91,14 @@ const Nav: React.FC<NavProps> = ({ categories }) => {
                             </MenuItem>
                           </Link>
                         ))}
+                        <Link href={`#contact`}>  
+                          <MenuItem onClick={handleCloseNavMenu}>
+                            <Typography textAlign='center'>Kontakt</Typography>
+                          </MenuItem>
+                        </Link>
                     </Menu>
                   </Box>
-                  <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+                  <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         {categories.map((category) => (
                             <Link key={category.id} href={`/category/${category.attributes.slug}`}>
                                 <Button
@@ -104,6 +109,14 @@ const Nav: React.FC<NavProps> = ({ categories }) => {
                                 </Button>
                             </Link>
                         ))}
+                        <Link href={`#contact`}>
+                            <Button
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                >
+                                <Typography textAlign='center'>Kontakt</Typography>
+                            </Button>
+                        </Link>
                     </Box>
               </Toolbar>    
           </Container>
