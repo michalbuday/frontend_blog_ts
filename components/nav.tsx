@@ -10,14 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-
-export interface Category {
-    id: string,
-    attributes: {
-        slug: string,
-        name: string
-    }
-}
+import { Category } from '../lib/types';
 
 interface NavProps {
     categories: Array<Category>

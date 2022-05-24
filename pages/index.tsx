@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { fetchAPI } from '../lib/api';
-import { Category } from '../components/nav';
+import { Category } from '../lib/types'
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 

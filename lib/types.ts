@@ -49,3 +49,11 @@ export type mediaType = {
       }
     }
 }
+
+export type Category = {
+    id: string,
+    attributes: {
+        slug: string,
+        name: string
+    }
+}
