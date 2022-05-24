@@ -40,3 +40,12 @@ export type globalContextType = {
     favicon: faviconType,
     siteName: String,
 }
+
+export type mediaType = {
+    data: {
+      attributes: {
+        url: string,
+        alternativeText: String | null
+      }
+    }
+}
