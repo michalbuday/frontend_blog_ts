@@ -1,3 +1,4 @@
+import React from 'react';
 import Nav, { Category } from "./nav";
 import Footer from "./footer";
 
@@ -6,7 +7,7 @@ interface LayoutProps {
     categories: Array<Category>
 }
 
-const Layout = ({children, categories}: LayoutProps) => {
+const Layout:React.FC<LayoutProps> = ({children, categories}) => {
     return (
     <>
         <Nav categories={categories} />

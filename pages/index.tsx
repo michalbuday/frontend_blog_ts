@@ -1,7 +1,8 @@
-import type { NextPage } from 'next'
-import Layout from '../components/layout'
+import { NextPage } from 'next';
 import { fetchAPI } from '../lib/api';
 import { Category } from '../components/nav';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
 
 interface PageProps {
   categories: Array<Category>
@@ -14,11 +15,12 @@ interface PageProps {
       homepageSection: Object
     }
   }
-}
+};
 
 const Home: NextPage<PageProps> = ( {categories, homepage} ) => {
   return (
     <Layout categories={categories}>
+      <Seo seo={homepage.attributes.seo} />
       <h1>{homepage.attributes.hero.title}</h1>
     </Layout>
   )
