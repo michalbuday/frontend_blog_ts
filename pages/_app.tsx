@@ -1,5 +1,6 @@
 import App from 'next/app'
 import Head from 'next/head'
+import '../styles/global.css'
 import { GlobalContext } from '../lib/context'
 import { fetchAPI } from '../lib/api'
 import { getStrapiMedia } from '../lib/media'

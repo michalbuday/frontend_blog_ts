@@ -4,8 +4,6 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-
-
 const Footer:React.FC = () => {
     const { contact } = useContext(GlobalContext)
 
@@ -13,15 +11,17 @@ const Footer:React.FC = () => {
         <React.Fragment>
             <Container
                 id="contact"
-                maxWidth='xl'
                 sx={{
                     backgroundColor: 'rgb(33,175,201)',
                     display:'flex',
                     justifyContent: 'center',
-                    padding: '20px 0'
+                    padding: '20px 0',
+                    maxWidth: '100% !important',
+                    // maxWidth - important, overload brakpoint feature
                     }}
                 >
                 <Box sx={{display: 'flex', flexDirection: 'column'}}>
+                    <Typography textAlign='center' color='white' variant='h5'>KONTAKT</Typography>
                     <Typography textAlign='center' color='white'>{contact.title}</Typography>
                     <Typography textAlign='center' color='white'>{contact.contact_email}</Typography>
                     <Typography textAlign='center' color='white'>{contact.phone}</Typography>

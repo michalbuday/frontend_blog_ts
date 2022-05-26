@@ -2,7 +2,10 @@ import { NextPage } from 'next';
 import { fetchAPI } from '../lib/api';
 import { Category } from '../lib/types'
 import Layout from '../components/layout';
+import Typography from '@mui/material/Typography';
 import Seo from '../components/seo';
+import SectionContainer from '../components/sectionContainer'
+import { sectionType } from '../lib/types'
 
 interface PageProps {
   categories: Array<Category>
@@ -10,9 +13,9 @@ interface PageProps {
     attributes: {
       seo: Object
       hero: {
-        title: String
+        title: string
       }
-      homepageSection: Object
+      homepageSection: Array<sectionType>
     }
   }
 };
@@ -21,7 +24,14 @@ const Home: NextPage<PageProps> = ( {categories, homepage} ) => {
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.attributes.seo} />
-      <h1>{homepage.attributes.hero.title}</h1>
+      <Typography 
+        variant='h3'
+        textAlign='center'
+        marginTop='20px'
+        >
+          {homepage.attributes.hero.title}
+      </Typography>
+      <SectionContainer sections={homepage.attributes.homepageSection}/>
     </Layout>
   )
 }

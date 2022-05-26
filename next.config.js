@@ -5,6 +5,9 @@ const nextConfig = {
     loader: "default",
     domains: ["localhost"],
   },
+  typescript: {
+    tsconfigPath: './tsconfig.json'
+  }
 }
 
 module.exports = nextConfig

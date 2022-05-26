@@ -29,8 +29,8 @@ const Nav: React.FC<NavProps> = ({ categories }) => {
 
   return (
     <React.Fragment>
-      <AppBar position='static'>
-          <Container maxWidth='xl' sx={{backgroundColor: 'rgb(199,0,185)'}}>
+      <AppBar position='static' sx={{backgroundColor: 'rgb(199,0,185)'}}>
+          <Container maxWidth='xl'>
               <Toolbar disableGutters sx={{ justifyContent: 'space-between'}}>
                   <Typography
                     variant='h6'

@@ -45,7 +45,9 @@ export type mediaType = {
     data: {
       attributes: {
         url: string,
-        alternativeText: String | null
+        alternativeText: string | null
+        width: number | string
+        height: number
       }
     }
 }
@@ -56,4 +58,10 @@ export type Category = {
         slug: string,
         name: string
     }
+}
+
+export type sectionType = {
+    title: string,
+    description: string,
+    image: mediaType
 }
