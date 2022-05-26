@@ -1,11 +1,11 @@
 import React from 'react';
 import Nav from "./nav";
 import Footer from "./footer";
-import { Category } from '../lib/types';
+import { categoryType } from '../lib/types';
 
 interface LayoutProps {
     children: React.ReactNode,
-    categories: Array<Category>
+    categories: Array<categoryType>
 }
 
 const Layout:React.FC<LayoutProps> = ({children, categories}) => {

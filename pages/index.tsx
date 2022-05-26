@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { fetchAPI } from '../lib/api';
-import { Category } from '../lib/types'
+import { categoryType } from '../lib/types'
 import Layout from '../components/layout';
 import Typography from '@mui/material/Typography';
 import Seo from '../components/seo';
@@ -8,7 +8,7 @@ import SectionContainer from '../components/sectionContainer'
 import { sectionType } from '../lib/types'
 
 interface PageProps {
-  categories: Array<Category>
+  categories: Array<categoryType>
   homepage: {
     attributes: {
       seo: Object

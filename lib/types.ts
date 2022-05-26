@@ -52,7 +52,7 @@ export type mediaType = {
     }
 }
 
-export type Category = {
+export type categoryType = {
     id: string,
     attributes: {
         slug: string,
