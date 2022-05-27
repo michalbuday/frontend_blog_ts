@@ -15,7 +15,6 @@ interface cardInterface {
 }
 
 const ArticleCard:React.FC<cardInterface> = ({ article }) => {
-    console.log(article)
     return (
         <React.Fragment>
             <Card sx={{ margin: '20px 0px', width: { md: '480px'}}}>
