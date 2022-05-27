@@ -7,7 +7,7 @@ import Seo from '../components/seo';
 import SectionContainer from '../components/sectionContainer'
 import { sectionType } from '../lib/types'
 
-interface PageProps {
+interface homeProps {
   categories: Array<categoryType>
   homepage: {
     attributes: {
@@ -20,7 +20,7 @@ interface PageProps {
   }
 };
 
-const Home: NextPage<PageProps> = ( {categories, homepage} ) => {
+const Home: NextPage<homeProps> = ( {categories, homepage} ) => {
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.attributes.seo} />

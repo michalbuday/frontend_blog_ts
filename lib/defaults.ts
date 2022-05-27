@@ -1,4 +1,4 @@
-import { globalContextType } from "./types"
+import { globalContextType, windowType } from "./types"
 
 export const globalContextDefaultValues:globalContextType = {
     contact: {
@@ -36,3 +36,8 @@ export const globalContextDefaultValues:globalContextType = {
     },
     siteName: 'Marta Jelinkova',
 }
+
+export const initialWindowData:windowType = {
+    width: 0,
+    height: 0,
+  }

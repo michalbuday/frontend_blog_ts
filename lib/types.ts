@@ -45,7 +45,7 @@ export type mediaType = {
     data: {
       attributes: {
         url: string,
-        alternativeText: string | null
+        alternativeText: string | undefined
         width: number | string
         height: number
       }
@@ -56,7 +56,10 @@ export type categoryType = {
     id: string,
     attributes: {
         slug: string,
-        name: string
+        name: string,
+        articles: {
+            data: Array<articleType>
+        }
     }
 }
 
@@ -64,4 +67,31 @@ export type sectionType = {
     title: string,
     description: string,
     image: mediaType
+}
+
+export type articleType = {
+    attributes: {
+        slug: string,
+        image: mediaType,
+        category: categoryType,
+        title: string,
+        content: string,
+        author: authorType,
+        description: string,
+        createdAt: string
+    }
+}
+
+export type authorType = {
+    data: {
+        attributes: {
+            email: string,
+            name: string
+        }
+    }
+}
+
+export type windowType = {
+    width: number,
+    height: number,
 }
