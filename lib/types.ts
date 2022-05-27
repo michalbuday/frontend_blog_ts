@@ -1,3 +1,4 @@
+//This file should contain all type definitions ok||nok?
 export type contactType = {
    address: String,
    contact_email: String,
@@ -73,12 +74,15 @@ export type articleType = {
     attributes: {
         slug: string,
         image: mediaType,
-        category: categoryType,
+        category: {
+            data: categoryType 
+        },
         title: string,
         content: string,
         author: authorType,
         description: string,
-        createdAt: string
+        createdAt: string,
+        publishedAt: string,
     }
 }
 
@@ -86,7 +90,8 @@ export type authorType = {
     data: {
         attributes: {
             email: string,
-            name: string
+            name: string,
+            picture?: mediaType
         }
     }
 }
