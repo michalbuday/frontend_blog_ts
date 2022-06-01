@@ -10,10 +10,11 @@ export interface sectionInterface {
 }
 
 const Section:React.FC<sectionInterface> = ({ section }) => {
+		// Condition is always true since types '{attributes: {url: string, alternativeText: string | undefined, width: number | string, height: number}}' and 'null' have no overlap
     const hasImage:Boolean = typeof section.image.data !== 'undefined' && section.image.data != null
     return (
         <React.Fragment>
-            <Container 
+            <Container
                 sx={{
                     display:'flex',
                     justifyContent:'center',
@@ -21,7 +22,7 @@ const Section:React.FC<sectionInterface> = ({ section }) => {
                     margin: '20px 0',
                     maxWidth: 'xl',
                 }}>
-            <Box 
+            <Box
                 sx={{
                     display:'flex',
                     justifyContent:'center',
@@ -43,7 +44,7 @@ const Section:React.FC<sectionInterface> = ({ section }) => {
                     </Typography>
                 </Box>
             </Box>
-            {hasImage && 
+            {hasImage &&
                 <Box sx={{
                     minWidth: { xs:'80%', md:'28%'},
                     minHeight: { xs:'80%', md:'28%'},

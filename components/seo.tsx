@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { GlobalContext } from "../lib/context";
 import { getStrapiMedia } from "../lib/media";
 
+// drobnost, ale myslim, ze je best practice pojmenovavat typy pomoci PascalCase
 interface seo {
     seo: any
 }

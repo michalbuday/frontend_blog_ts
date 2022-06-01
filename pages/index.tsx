@@ -11,6 +11,7 @@ interface homeProps {
   categories: Array<categoryType>
   homepage: {
     attributes: {
+			// tohle by asi chtelo lip otypovat
       seo: Object
       hero: {
         title: string
@@ -24,7 +25,7 @@ const Home: NextPage<homeProps> = ( {categories, homepage} ) => {
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.attributes.seo} />
-      <Typography 
+      <Typography
         variant='h3'
         textAlign='center'
         marginTop='20px'

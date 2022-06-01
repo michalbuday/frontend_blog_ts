@@ -28,7 +28,8 @@ const Article:NextPage<articleProps> = ({ article, categories }) => {
       shareImage: article.attributes.image,
       article: true,
     }
- 
+
+		// tohle neni vyslovene spatne, ale myslim, ze je dobrej zvyk nezaplacavat return stranek a mit tady minimum markupu - idealne jednu komponentu, neco jako ArticlePage nebo tak neco a tam presunout vse, co mas tady
     return (
         <Layout categories={categories}>
           <Seo seo={seo}/>
@@ -48,7 +49,7 @@ const Article:NextPage<articleProps> = ({ article, categories }) => {
                     {article.attributes.category.data.attributes.name}
                   </Button>
                 </Link>
-                <Typography 
+                <Typography
                     variant='h3'
                     textAlign='left'
                     margin='20px 0px'
@@ -61,14 +62,15 @@ const Article:NextPage<articleProps> = ({ article, categories }) => {
                    neviem jak sa toho zbavit */}
                 </Typography>
                 <Box sx={{display: 'flex'}}>
-                  {article.attributes.author.data.attributes.picture && 
+                  {article.attributes.author.data.attributes.picture &&
                   <Avatar
                     sx={{ marginRight: '20px' }}
+										{/* Type string | undefined is not assignable to type string  */}
                     alt={article.attributes.author.data.attributes.picture.data.attributes.alternativeText}
                     src={getStrapiMedia(article.attributes.author.data.attributes.picture)}
                   />
                   // te nested data zo strapi su "bozi", chcelo by to upravit
-                  } 
+                  }
                   <Box>
                     <Typography>
                       {article.attributes.author.data.attributes.name}
@@ -82,14 +84,14 @@ const Article:NextPage<articleProps> = ({ article, categories }) => {
                 </Box>
               </CardContent>
             </Card>
-          </Container>  
+          </Container>
         </Layout>
     )
 }
 
 export async function getStaticPaths() {
     const articlesRes = await fetchAPI("/articles", { fields: ["slug"] });
-  
+
     return {
       paths: articlesRes.data.map((article: articleType) => ({
         params: {
@@ -99,7 +101,7 @@ export async function getStaticPaths() {
       fallback: false,
     }
   }
-  
+
   export async function getStaticProps({ params }:any) {
     const articlesRes = await fetchAPI("/articles", {
       filters: {
@@ -108,7 +110,7 @@ export async function getStaticPaths() {
       populate: ["image", "category", "author.picture"],
     })
     const categoriesRes = await fetchAPI("/categories")
-  
+
     return {
       props: { article: articlesRes.data[0], categories: categoriesRes.data },
       revalidate: 1,

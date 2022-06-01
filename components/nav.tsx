@@ -18,11 +18,11 @@ interface NavProps {
 
 const Nav: React.FC<NavProps> = ({ categories }) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -69,8 +69,9 @@ const Nav: React.FC<NavProps> = ({ categories }) => {
                       keepMounted
                       transformOrigin={{
                         vertical: 'top',
-                        horizontal: 'left', 
+                        horizontal: 'left',
                       }}
+											{/* Argument type HTMLElement | null is not assignable to parameter type HTMLElement | null | undefined  */}
                       open={Boolean(anchorElNav)}
                       onClose={handleCloseNavMenu}
                       sx={{
@@ -78,13 +79,13 @@ const Nav: React.FC<NavProps> = ({ categories }) => {
                       }}
                     >
                         {categories.map((category)=> (
-                          <Link key={category.attributes.slug} href={`/category/${category.attributes.slug}`}>  
+                          <Link key={category.attributes.slug} href={`/category/${category.attributes.slug}`}>
                             <MenuItem onClick={handleCloseNavMenu}>
                               <Typography textAlign='center'>{category.attributes.name}</Typography>
                             </MenuItem>
                           </Link>
                         ))}
-                        <Link href={`#contact`}>  
+                        <Link href={`#contact`}>
                           <MenuItem onClick={handleCloseNavMenu}>
                             <Typography textAlign='center'>Kontakt</Typography>
                           </MenuItem>
@@ -111,10 +112,10 @@ const Nav: React.FC<NavProps> = ({ categories }) => {
                             </Button>
                         </Link>
                     </Box>
-              </Toolbar>    
+              </Toolbar>
           </Container>
       </AppBar>
-    </React.Fragment>  
+    </React.Fragment>
   );
 };
 
