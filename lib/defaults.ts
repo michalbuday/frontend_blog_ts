@@ -10,7 +10,16 @@ export const globalContextDefaultValues:GlobalContextType = {
     defaultSeo: {
         metaDescription: '',
         metaTitle: '',
-        shareImage: {},
+        shareImage: { 
+            data: {
+              attributes: {
+                url: '',
+                alternativeText: '',
+                width: '',
+                height: 0,
+              }
+          }
+        },
         article: false,
     },
     favicon: {
