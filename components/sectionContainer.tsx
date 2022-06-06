@@ -1,13 +1,13 @@
 import React from 'react'
 import Section from './section'
-import { sectionType } from '../lib/types'
+import { SectionType } from '../lib/types'
 import Container from '@mui/material/Container'
 
-export interface sectionContainer {
-    sections: Array<sectionType>
+export interface SectionContainer {
+    sections: Array<SectionType>
 }
 
-const SectionContainer:React.FC<sectionContainer> = ({ sections }) => {
+const SectionContainer:React.FC<SectionContainer> = ({ sections }) => {
     return (
         <React.Fragment>
             <Container maxWidth='xl'>

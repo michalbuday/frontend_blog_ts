@@ -1,6 +1,6 @@
-import { globalContextType, windowType } from "./types"
+import { GlobalContextType, WindowType } from "./types"
 
-export const globalContextDefaultValues:globalContextType = {
+export const globalContextDefaultValues:GlobalContextType = {
     contact: {
         address: '',
         contact_email: '',
@@ -11,6 +11,7 @@ export const globalContextDefaultValues:globalContextType = {
         metaDescription: '',
         metaTitle: '',
         shareImage: {},
+        article: false,
     },
     favicon: {
         data: {
@@ -19,7 +20,7 @@ export const globalContextDefaultValues:globalContextType = {
                 caption: '',
                 createdAt: '',
                 ext: '',
-                formats: '',
+                formats: {},
                 hash: '',
                 height: 0,
                 mime: '',
@@ -37,7 +38,7 @@ export const globalContextDefaultValues:globalContextType = {
     siteName: 'Marta Jelinkova',
 }
 
-export const initialWindowData:windowType = {
+export const initialWindowData:WindowType = {
     width: 0,
     height: 0,
   }

@@ -1,15 +1,15 @@
 import React from 'react'
-import { sectionType } from '../lib/types'
+import { SectionType } from '../lib/types'
 import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import CustomImage from './image'
 
-export interface sectionInterface {
-    section: sectionType
+export interface SectionInterface {
+    section: SectionType
 }
 
-const Section:React.FC<sectionInterface> = ({ section }) => {
+const Section:React.FC<SectionInterface> = ({ section }) => {
     const hasImage:Boolean = typeof section.image.data !== 'undefined' && section.image.data != null
     return (
         <React.Fragment>

@@ -1,48 +1,49 @@
 //This file should contain all type definitions ok||nok?
-export type contactType = {
-   address: String,
-   contact_email: String,
-   phone: String,
+export type ContactType = {
+   address: string,
+   contact_email: string,
+   phone: string,
    title: String,
 }
  
-export type defaultSeoType = {
-    metaDescription: String,
-    metaTitle: String,
-    shareImage: Object,
+export type SeoType = {
+    metaDescription: string,
+    metaTitle: string,
+    shareImage: MediaType,
+    article: boolean | null | undefined,
 }
  
-export type faviconType = {
+export type FaviconType = {
     data: {
         attributes: {
-            alternativeText: String,
-            caption: String,
-            createdAt: String,
-            ext: String,
-            formats: Object,
-            hash: String,
-            height: Number,
-            mime: String,
-            name: String,
-            previewUrl: String | null,
-            provider: String,
-            provider_metadata: String | null,
-            size: Number,
-            updatedAt: String,
-            url: String,
-            width: Number,
+            alternativeText: string,
+            caption: string,
+            createdAt: string,
+            ext: string,
+            formats: object,
+            hash: string,
+            height: number,
+            mime: string,
+            name: string,
+            previewUrl: string | null,
+            provider: string,
+            provider_metadata: string | null,
+            size: number,
+            updatedAt: string,
+            url: string,
+            width: number,
         }
     }
 }
  
-export type globalContextType = {
-    contact: contactType,
-    defaultSeo: defaultSeoType,
-    favicon: faviconType,
-    siteName: String,
+export type GlobalContextType = {
+    contact: ContactType,
+    defaultSeo: SeoType,
+    favicon: FaviconType,
+    siteName: string,
 }
 
-export type mediaType = {
+export type MediaType = {
     data: {
       attributes: {
         url: string,
@@ -50,53 +51,53 @@ export type mediaType = {
         width: number | string
         height: number
       }
-    }
+    } | null
 }
 
-export type categoryType = {
+export type CategoryType = {
     id: string,
     attributes: {
         slug: string,
         name: string,
         articles: {
-            data: Array<articleType>
+            data: Array<ArticleType>
         }
     }
 }
 
-export type sectionType = {
+export type SectionType = {
     title: string,
     description: string,
-    image: mediaType
+    image: MediaType
 }
 
-export type articleType = {
+export type ArticleType = {
     attributes: {
         slug: string,
-        image: mediaType,
+        image: MediaType,
         category: {
-            data: categoryType 
+            data: CategoryType 
         },
         title: string,
         content: string,
-        author: authorType,
+        author: AuthorType,
         description: string,
         createdAt: string,
         publishedAt: string,
     }
 }
 
-export type authorType = {
+export type AuthorType = {
     data: {
         attributes: {
             email: string,
             name: string,
-            picture?: mediaType
+            picture?: MediaType
         }
     }
 }
 
-export type windowType = {
+export type WindowType = {
     width: number,
     height: number,
 }

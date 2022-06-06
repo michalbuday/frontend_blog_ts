@@ -10,14 +10,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import { categoryType } from '../lib/types';
+import { CategoryType } from '../lib/types';
 
 interface NavProps {
-    categories: Array<categoryType>
+    categories: Array<CategoryType>
 }
 
 const Nav: React.FC<NavProps> = ({ categories }) => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement | undefined>(null);
   
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);

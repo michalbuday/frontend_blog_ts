@@ -1,38 +1,10 @@
 import { NextPage } from 'next';
 import { fetchAPI } from '../lib/api';
-import { categoryType } from '../lib/types'
-import Layout from '../components/layout';
-import Typography from '@mui/material/Typography';
-import Seo from '../components/seo';
-import SectionContainer from '../components/sectionContainer'
-import { sectionType } from '../lib/types'
+import HomePage, { HomeProps } from '../components/homePage'
 
-interface homeProps {
-  categories: Array<categoryType>
-  homepage: {
-    attributes: {
-      seo: Object
-      hero: {
-        title: string
-      }
-      homepageSection: Array<sectionType>
-    }
-  }
-};
-
-const Home: NextPage<homeProps> = ( {categories, homepage} ) => {
+const Home: NextPage<HomeProps> = ({categories, homepage}) => {
   return (
-    <Layout categories={categories}>
-      <Seo seo={homepage.attributes.seo} />
-      <Typography 
-        variant='h3'
-        textAlign='center'
-        marginTop='20px'
-        >
-          {homepage.attributes.hero.title}
-      </Typography>
-      <SectionContainer sections={homepage.attributes.homepageSection}/>
-    </Layout>
+    <HomePage categories={categories} homepage={homepage} />
   )
 }
 

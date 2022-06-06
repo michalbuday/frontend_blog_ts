@@ -1,14 +1,14 @@
 import React from 'react'
-import { articleType } from '../lib/types'
+import { ArticleType } from '../lib/types'
 import ArticleCard from './articleCard'
 import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 
-interface articlesInterface {
-    articles: Array<articleType>
+interface ArticlesInterface {
+    articles: Array<ArticleType>
 }
 
-const Articles:React.FC<articlesInterface> = ({ articles }) => {
+const Articles:React.FC<ArticlesInterface> = ({ articles }) => {
     return (
         <React.Fragment>
             <Container maxWidth='xl' sx={{  display:'flex', justifyContent: 'center' }}>

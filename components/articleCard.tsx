@@ -7,14 +7,14 @@ import CardMedia from '@mui/material/CardMedia'
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button';
 
-import { articleType } from '../lib/types'
+import { ArticleType } from '../lib/types'
 import { getStrapiMedia } from '../lib/media'
 
-interface cardInterface {
-    article: articleType
+interface CardInterface {
+    article: ArticleType
 }
 
-const ArticleCard:React.FC<cardInterface> = ({ article }) => {
+const ArticleCard:React.FC<CardInterface> = ({ article }) => {
     return (
         <React.Fragment>
             <Card sx={{ margin: '20px 0px', width: { md: '480px'}}}>
@@ -22,7 +22,7 @@ const ArticleCard:React.FC<cardInterface> = ({ article }) => {
                     component='img'
                     height='140'
                     src={getStrapiMedia(article.attributes.image)}
-                    alt={article.attributes.image.data.attributes.alternativeText}
+                    alt={article.attributes.image.data?.attributes.alternativeText}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">{article.attributes.title}</Typography>

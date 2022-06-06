@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { initialWindowData } from './defaults'
 
 
-// Hook from stackOverflow, changed to typescript compatibility
+// Hook from stackOverflow, changed to typescript compatibility, needs to be changed, makes layout "jump" on hydration
 export function useWindowSize() {
   // Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/

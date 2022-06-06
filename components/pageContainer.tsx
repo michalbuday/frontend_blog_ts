@@ -2,11 +2,11 @@ import React from 'react'
 import Container from '@mui/material/Container'
 import { useWindowSize } from '../lib/windowSize'
 
-interface pageContainerInterface {
+interface PageContainerInterface {
     children: React.ReactNode
 }
 
-const PageContainer:React.FC<pageContainerInterface> = ({ children }) => {
+const PageContainer:React.FC<PageContainerInterface> = ({ children }) => {
     const size = useWindowSize()
     return (
         <Container sx={{

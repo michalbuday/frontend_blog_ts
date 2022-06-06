@@ -3,12 +3,13 @@ import Head from "next/head";
 import { useContext } from "react";
 import { GlobalContext } from "../lib/context";
 import { getStrapiMedia } from "../lib/media";
+import { SeoType } from "../lib/types"
 
-interface seo {
-    seo: any
+interface Seo {
+    seo: SeoType
 }
 
-const Seo:React.FC<seo> = ({ seo })  => {
+const Seo:React.FC<Seo> = ({ seo })  => {
     const { defaultSeo, siteName } = useContext(GlobalContext)
 
     const seoWithDefaults = {

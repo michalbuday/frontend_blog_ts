@@ -1,30 +1,12 @@
-import React from 'react'
 import { NextPage } from 'next'
-import Layout from '../../components/layout'
-import Articles from '../../components/articles'
-import Typography from '@mui/material/Typography'
-
 import { fetchAPI } from '../../lib/api'
-import { categoryType } from '../../lib/types'
+import { CategoryType } from '../../lib/types'
+import CategoryPage, { CategoryProps } from '../../components/categoryPage'
 
-interface categoryProps {
-    category: categoryType,
-    categories: Array<categoryType>
-}
 
-const Category:NextPage<categoryProps> = ({ category, categories }) => {
+const Category:NextPage<CategoryProps> = ({ category, categories }) => {
     return (
-        <Layout categories={categories}>
-            <Typography 
-                variant='h3'
-                textAlign='center'
-                marginTop='20px'
-                textTransform= 'uppercase'
-                >
-                {category.attributes.name}
-            </Typography>
-            <Articles articles={category.attributes.articles.data}/>
-        </Layout>
+        <CategoryPage category={category} categories={categories} />
     )
 }
 
@@ -32,7 +14,7 @@ export async function getStaticPaths() {
     const categoriesRes = await fetchAPI("/categories", { fields: ["slug"] });
   
     return {
-      paths: categoriesRes.data.map((category: categoryType) => ({
+      paths: categoriesRes.data.map((category: CategoryType) => ({
         params: {
           slug: category.attributes.slug,
         },
@@ -61,4 +43,4 @@ export async function getStaticPaths() {
     };
   }
   
-  export default Category;
+  export default Category
